@@ -22,13 +22,13 @@ Aplikacja chmurowa zbudowana w FastAPI + HTML + Tailwind CSS, uruchomiona w Rail
 
 ## Zrzuty ekranu
 
-### Ekran startowy quizu
+### Ekran startowy quizu/przykład pytania z odpowiedziami
 ![APP1](screenshots/APP1.png)
 
-### Przykład pytania z odpowiedziami
+### Informacja o poprawnej odpowiedzi
 ![APP2](screenshots/APP2.png)
 
-### Informacja o poprawnej/niepoprawnej odpowiedzi
+### Informacja o niepoprawnej odpowiedzi
 ![APP3](screenshots/APP3.png)
 
 ### Koniec quizu – wynik końcowy
