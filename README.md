@@ -20,10 +20,37 @@ Aplikacja chmurowa zbudowana w FastAPI + HTML + Tailwind CSS, uruchomiona w Rail
 
 ---
 
+## Zrzuty ekranu
+
+### Ekran startowy quizu
+![APP1](screenshots/APP1.png)
+
+### Przykład pytania z odpowiedziami
+![APP2](screenshots/APP2.png)
+
+### Informacja o poprawnej/niepoprawnej odpowiedzi
+![APP3](screenshots/APP3.png)
+
+### Koniec quizu – wynik końcowy
+![APP4](screenshots/APP4.png)
+
+### Kod backendu w VS Code
+![VS1](screenshots/VS1.png)
+
+### API /questions w dokumentacji Swagger
+![VS2](screenshots/VS2.png)
+
+### Widok projektu w Railway
+![VS3](screenshots/VS3.png)
+
+### Struktura plików projektu
+![VS4](screenshots/VS4.png)
+
+---
+
 ## Jak uruchomić lokalnie?
 
-```bash
-git clone https://github.com/TWÓJ_UŻYTKOWNIK/quiz-app.git
+git clone https://github.com/Thormad92/quiz-app.git
 cd quiz-app
 docker build -t quiz-app .
 docker run -d -p 8000:8000 quiz-app
