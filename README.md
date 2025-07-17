@@ -53,3 +53,6 @@ docker run -d -p 8000:8000 quiz-app
 
 Potem otwórz:
 http://localhost:8000
+
+Link do aplikacji na railway:
+quiz-app-production-9e9c.up.railway.app
