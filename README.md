@@ -34,16 +34,12 @@ Aplikacja chmurowa zbudowana w FastAPI + HTML + Tailwind CSS, uruchomiona w Rail
 ### Koniec quizu – wynik końcowy
 ![APP4](screenshots/APP4.png)
 
-### Kod backendu w VS Code
 ![VS1](screenshots/VS1.png)
 
-### API /questions w dokumentacji Swagger
 ![VS2](screenshots/VS2.png)
 
-### Widok projektu w Railway
 ![VS3](screenshots/VS3.png)
 
-### Struktura plików projektu
 ![VS4](screenshots/VS4.png)
 
 ---
