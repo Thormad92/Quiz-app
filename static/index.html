@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz wiedzy ogólnej</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start p-6">
+
+  <h1 class="text-3xl font-bold my-4">Quiz wiedzy ogólnej</h1>
+
+  <div id="quiz" class="w-full max-w-xl bg-white p-6 rounded-2xl shadow-md"></div>
+
+  <div class="mt-4 text-lg" id="score">Poprawne: 0 | Błędne: 0</div>
+
+  <div class="fixed bottom-2 right-4 text-sm text-gray-500">
+    Made by: Jacek Gruca - 7520
+  </div>
+
+  <script>
+    let current = 0;
+    let correct = 0;
+    let wrong = 0;
+    let questions = [];
+
+    fetch("/questions")
+      .then(res => res.json())
+      .then(data => {
+        questions = data;
+        showQuestion();
+      });
+
+    function showQuestion() {
+      const quiz = document.getElementById("quiz");
+      if (current >= questions.length) {
+        quiz.innerHTML = `<div class="text-xl font-semibold">Koniec quizu!<br>Twój wynik: ${correct} / ${questions.length}</div>`;
+        return;
+      }
+
+      const q = questions[current];
+      quiz.innerHTML = `
+        <div class="mb-4 text-lg font-medium">${q.question}</div>
+        <div class="space-y-2">
+          ${q.options.map((opt, idx) => `
+            <button onclick="submitAnswer(${q.id}, ${idx})"
+              class="w-full text-left bg-blue-100 hover:bg-blue-200 p-2 rounded-xl">
+              ${opt}
+            </button>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function submitAnswer(id, answer) {
+      fetch("/answer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, answer })
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.correct) {
+            correct++;
+            alert("✅ Dobra odpowiedź!");
+          } else {
+            wrong++;
+            alert("❌ Zła odpowiedź!");
+          }
+          current++;
+          document.getElementById("score").innerText = `Poprawne: ${correct} | Błędne: ${wrong}`;
+          showQuestion();
+        });
+    }
+  </script>
+</body>
+</html>
